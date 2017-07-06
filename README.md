@@ -1,2 +1,2 @@
 # timestamp
-freeCodeCamp project to build timestamp microservice
+freeCodeCamp project to build a timestamp microservice
