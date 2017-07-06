@@ -9,6 +9,9 @@
     "url": "https://github.com/vigntom2708/timestamp",
     "type": "git"
   },
+  "engine": {
+    "node": "6.9.4"
+  },
   "author": "Aleksandr I. <vigntom.2708@gmail.com>",
   "license": "MIT"
 }
