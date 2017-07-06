@@ -1,0 +1,14 @@
+{
+  "name": "timestamp",
+  "version": "0.0.0",
+  "description": "'FreeCodeCamp project: Timestamp Microservice'",
+  "main": "index.js",
+  "homepage": "https://github.com/vigntom2708/timestamp",
+  "bugs": "https://github.com/vigntom2708/timestamp/issues",
+  "repository": {
+    "url": "https://github.com/vigntom2708/timestamp",
+    "type": "git"
+  },
+  "author": "Aleksandr I. <vigntom.2708@gmail.com>",
+  "license": "MIT"
+}
