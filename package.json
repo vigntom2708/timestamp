@@ -16,6 +16,8 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.20.0",
+    "moment": "^2.18.1",
+    "supertest": "^3.0.0",
     "xo": "^0.18.2"
   },
   "scripts": {
@@ -33,6 +35,13 @@
   },
   "xo": {
     "space": 2,
-    "semicolon": false
+    "semicolon": false,
+    "rules": {
+      "object-curly-spacing": [
+        "error",
+        "always"
+      ],
+      "capitalized-comments": 0
+    }
   }
 }
