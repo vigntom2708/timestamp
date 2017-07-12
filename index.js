@@ -1,39 +1,12 @@
-const http = require('http')
-const url = require('url')
-const moment = require('moment')
+const app = require('./lib/server')
 
-function createCorrectDate(dateStr) {
-  if (/^\d+$/.test(dateStr)) {
-    return new Date(Number(dateStr))
-  }
+const port = process.env.PORT || 5000
 
-  if (/^[A-Z][a-z]+\s\d{1,2},\s\d{4}/.test(dateStr)) {
-    return Date.parse(dateStr)
-  }
-
-  return undefined
+function gotHttpError(e, socket) {
+  console.error('Got Error: ', e.message)
+  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n')
 }
 
-function formResponse(reqDate) {
-  if (reqDate === '/') {
-    return { unix: null, natural: null }
-  }
-
-  const date = createCorrectDate(decodeURI(reqDate.slice(1)))
-
-  if (date) {
-    return {
-      unix: date.valueOf(),
-      natural: moment(date).format('LL')
-    }
-  }
-
-  return { unix: null, natural: null }
-}
-
-exports.server = http.createServer((req, res) => {
-  res.writeHead(200, { 'Content-Type': 'application/json' })
-  const date = url.parse(req.url).pathname
-
-  res.end(JSON.stringify(formResponse(date)))
-})
+app.server
+  .on('clientError', gotHttpError)
+  .listen(port)

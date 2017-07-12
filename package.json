@@ -21,14 +21,14 @@
     "xo": "^0.18.2"
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "ava",
+    "start": "node index.js"
   },
   "ava": {
-    "files": [
-      "test/*.test.js"
-    ],
+    "files": [ "test/**/*.test.js" ],
     "source": [
-      "index.js"
+      "index.js",
+      "lib/*.js"
     ],
     "concurrency": 5,
     "tap": true

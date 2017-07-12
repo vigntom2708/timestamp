@@ -1,11 +1,11 @@
 import request from 'supertest'
 import moment from 'moment'
 import test from 'ava'
-import { server } from './../index'
+import { server } from './../../lib/server'
 
 test.cb('Empty Request', t => {
   request(server)
-    .get('/')
+    .get('/api/')
     .expect('Content-Type', 'application/json')
     .expect(200)
     .end((err, res) => {
@@ -18,7 +18,7 @@ test.cb('Empty Request', t => {
 
 test.cb('Wrong Request', t => {
   request(server)
-    .get('/Wrong Request')
+    .get('/api/Wrong Request')
     .expect('Content-Type', 'application/json')
     .expect(200)
     .end((err, res) => {
@@ -33,7 +33,7 @@ test.cb('Request with a unix timestamp', t => {
   const timestamp = Date.now()
 
   request(server)
-    .get(`/${timestamp.valueOf()}`)
+    .get(`/api/${timestamp.valueOf()}`)
     .expect('Content-Type', 'application/json')
     .expect(200)
     .end((err, res) => {
@@ -48,7 +48,7 @@ test.cb('Request with a natural timestamp', t => {
   const timestamp = Date.parse(moment(Date.now()).format('LL'))
 
   request(server)
-    .get(`/${moment(timestamp).format('LL')}`)
+    .get(`/api/${moment(timestamp).format('LL')}`)
     .expect('Content-Type', 'application/json')
     .expect(200)
     .end((err, res) => {
