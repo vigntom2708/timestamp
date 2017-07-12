@@ -16,7 +16,6 @@
   "license": "MIT",
   "devDependencies": {
     "ava": "^0.20.0",
-    "moment": "^2.18.1",
     "supertest": "^3.0.0",
     "xo": "^0.18.2"
   },
@@ -25,7 +24,9 @@
     "start": "node index.js"
   },
   "ava": {
-    "files": [ "test/**/*.test.js" ],
+    "files": [
+      "test/**/*.test.js"
+    ],
     "source": [
       "index.js",
       "lib/*.js"
@@ -43,5 +44,8 @@
       ],
       "capitalized-comments": 0
     }
+  },
+  "dependencies": {
+    "moment": "^2.18.1"
   }
 }
