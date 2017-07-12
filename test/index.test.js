@@ -29,7 +29,7 @@ test.cb('Wrong Request', t => {
     })
 })
 
-test.cb('Request from a unix timestamp', t => {
+test.cb('Request with a unix timestamp', t => {
   const timestamp = Date.now()
 
   request(server)
@@ -44,7 +44,7 @@ test.cb('Request from a unix timestamp', t => {
     })
 })
 
-test.cb('Request from a natural timestamp', t => {
+test.cb('Request with a natural timestamp', t => {
   const timestamp = Date.parse(moment(Date.now()).format('LL'))
 
   request(server)
